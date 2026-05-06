@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1a2b3c",
+    "title": "FastAPI is replacing Flask in my company",
+    "text": "We recently migrated our microservices to FastAPI. The performance boost is insane and the automatic swagger docs are a lifesaver.",
+    "subreddit": "Python",
+    "created_utc": 1715014800
+  },
+  {
+    "id": "4d5e6f",
+    "title": "AWS pricing is so confusing",
+    "text": "I tried setting up a simple database and got charged $50 out of nowhere. I hate their billing dashboard.",
+    "subreddit": "aws",
+    "created_utc": 1715018400
+  },
+  {
+    "id": "7g8h9i",
+    "title": "Airflow vs Prefect for Data Engineering?",
+    "text": "What are you guys using in 2026? Airflow feels too heavy, but it's the industry standard.",
+    "subreddit": "dataengineering",
+    "created_utc": 1715022000
+  }
+]
