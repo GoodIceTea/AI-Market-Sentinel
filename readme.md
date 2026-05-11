@@ -2,7 +2,8 @@
 
 Kompleksowy system klasy Enterprise do monitorowania trendów technologicznych. Projekt realizuje pełny proces **ETL** (Extract, Transform, Load), wykorzystuje **Sztuczną Inteligencję** do analizy sentymentu i jest w pełni zautomatyzowany w chmurze.
 
-![Dashboard Preview](dashboard.png) ## 🚀 O Projekcie
+![Dashboard Preview](dashboard.png) 
+## 🚀 O Projekcie
 
 Projekt został zbudowany w ciągu 7 dni jako demonstracja umiejętności z zakresu Data Engineeringu, pracy z chmurą AWS oraz automatyzacji procesów. System codziennie pobiera najnowsze dyskusje technologiczne, ocenia ich wydźwięk biznesowy i wizualizuje dane.
 
