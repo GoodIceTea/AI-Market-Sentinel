@@ -1,4 +1,5 @@
 import json
+import requests
 from textblob import TextBlob
 
 def categorize_sentiment(result):
@@ -9,16 +10,39 @@ def categorize_sentiment(result):
     else:
         return "neutral"
 
-with open ("mock_reddit_data.json") as f:
-    data = json.load(f)
+print("Connecting to Hacker News API...")
 
-    for post in data:
-        title = post["title"]
-        text = post["text"]
+url_new_stories = "https://hacker-news.firebaseio.com/v0/newstories.json"
+response = requests.get(url_new_stories)
 
-        analyse = TextBlob(text)
-        result = analyse.sentiment.polarity
+if response.status_code != 200:
+    print(f"Failed to fetch new stories: {response.status_code}")
+    exit(1)
 
-        category = categorize_sentiment(result)
+story_ids = response.json()
 
-        print(title, category)
+if not story_ids:
+    print("No new stories found.")
+    exit()
+
+top10_ids = story_ids[:10]
+
+print("Fetching top 10 stories...\n")
+
+for story_id in top10_ids:
+    url_item = f"https://hacker-news.firebaseio.com/v0/item/{story_id}.json"
+    item_response = requests.get(url_item)
+    post_data = item_response.json()
+
+    title = post_data.get("title", "No title available")
+    text = post_data.get("text", "")
+
+    content_to_analyze = f"{title} {text}".strip()
+
+    analyse = TextBlob(content_to_analyze)
+    result = analyse.sentiment.polarity
+    category = categorize_sentiment(result)
+
+    print(f"Tytuł: {title}")
+    print(f"Sentyment: {category} (Wartość: {result:.2f})")
+    print("-"*50)
