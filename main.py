@@ -68,6 +68,9 @@ for story_id in top10_ids:
     item_response = requests.get(url_item)
     post_data = item_response.json()
 
+    if post_data is None:
+        print(f"Failed to fetch item for story ID: {story_id}")
+        continue
     title = post_data.get("title", "No title available")
     text = post_data.get("text", "")
 
